@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Wellness Pup">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#6B9FFF">
+
+    <!-- App Description -->
+    <meta name="description"
+        content="Wellness Pup - Your adorable reminder to stand up and stretch during work hours. Stay healthy with cute Maltese puppy reminders!">
+    <meta name="keywords" content="wellness, health, reminder, stand up, stretch, work, productivity, maltese, puppy">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icon-167.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+
+    <title>Wellness Pup - Stand Up Reminder</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main App Container -->
+    <div id="app" class="app-container">
+
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen active">
+            <div class="header">
+                <h1 class="app-title">Wellness Pup 🐕</h1>
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Active</span>
+                </div>
+            </div>
+
+            <!-- Dog Mascot -->
+            <div class="mascot-container">
+                <div class="dog-mascot" id="dogMascot">
+                    <img src="maltese-mascot.svg" alt="Maltese Mascot" class="mascot-svg">
+                </div>
+                <p class="mascot-message" id="mascotMessage">Ready to keep you healthy! 🐾</p>
+            </div>
+
+            <!-- Next Reminder Info -->
+            <div class="reminder-card">
+                <div class="reminder-label">Next Reminder</div>
+                <div class="reminder-time" id="nextReminderTime">--:--</div>
+                <div class="reminder-countdown" id="reminderCountdown">Calculating...</div>
+            </div>
+
+            <!-- Toggle Switch -->
+            <div class="toggle-container">
+                <label class="toggle-label">
+                    <input type="checkbox" id="reminderToggle" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">Reminders Enabled</span>
+                </label>
+            </div>
+
+            <!-- Today's Schedule -->
+            <div class="schedule-section">
+                <h2 class="section-title">Today's Schedule</h2>
+                <div class="schedule-list" id="scheduleList">
+                    <!-- Schedule items will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settingsScreen" class="screen">
+            <div class="header">
+                <h1 class="app-title">Settings ⚙️</h1>
+            </div>
+
+            <div class="settings-content">
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Work Schedule</h3>
+
+                    <div class="setting-item">
+                        <label class="setting-label">Work Days</label>
+                        <div class="weekday-selector">
+                            <button class="weekday-btn active" data-day="1">Mon</button>
+                            <button class="weekday-btn active" data-day="2">Tue</button>
+                            <button class="weekday-btn active" data-day="3">Wed</button>
+                            <button class="weekday-btn active" data-day="4">Thu</button>
+                            <button class="weekday-btn active" data-day="5">Fri</button>
+                            <button class="weekday-btn" data-day="6">Sat</button>
+                            <button class="weekday-btn" data-day="0">Sun</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <label class="setting-label">Start Time</label>
+                        <input type="time" id="startTime" class="time-input" value="09:00">
+                    </div>
+
+                    <div class="setting-item">
+                        <label class="setting-label">Lunch Break</label>
+                        <div class="time-range">
+                            <input type="time" id="lunchStart" class="time-input" value="11:30">
+                            <span class="time-separator">to</span>
+                            <input type="time" id="lunchEnd" class="time-input" value="13:30">
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <label class="setting-label">End Time</label>
+                        <input type="time" id="endTime" class="time-input" value="17:30">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Reminder Settings</h3>
+
+                    <div class="setting-item">
+                        <label class="setting-label">Reminder Interval</label>
+                        <div class="interval-selector">
+                            <button class="interval-btn" data-interval="60">1 hour</button>
+                            <button class="interval-btn active" data-interval="120">2 hours</button>
+                            <button class="interval-btn" data-interval="180">3 hours</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <label class="setting-label">Sound Notifications</label>
+                        <label class="toggle-label small">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="save-btn" id="saveSettings">Save Settings</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-screen="homeScreen">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-btn" data-screen="settingsScreen">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M12 1v6m0 6v6m0-6h6m-6 0H6m12.22-6.22l-4.24 4.24m-5.96 5.96l-4.24 4.24m0-12.44l4.24 4.24m5.96 5.96l4.24 4.24">
+                    </path>
+                </svg>
+                <span class="nav-label">Settings</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Notification Overlay -->
+    <div id="notificationOverlay" class="notification-overlay">
+        <div class="notification-content">
+            <div class="notification-dog">
+                <img src="maltese-stretch.svg" alt="Stretching Maltese" class="stretch-svg">
+            </div>
+            <h2 class="notification-title">Time to Stand Up! 🐾</h2>
+            <p class="notification-message">You've been sitting for a while. Let's stretch and move!</p>
+            <div class="notification-actions">
+                <button class="notification-btn primary" id="dismissNotification">Done!</button>
+                <button class="notification-btn secondary" id="snoozeNotification">Snooze 10 min</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 140" width="280" height="140">
+  <defs>
+    <radialGradient id="bodyFur" cx="45%" cy="40%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#FEFEFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F8F8F8;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="headFur" cx="40%" cy="35%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F8F8F8;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="stretchEye" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#3D2817;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1410;stop-opacity:1" />
+    </radialGradient>
+    
+    <filter id="softFur">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Stretching body (elongated) -->
+  <ellipse cx="160" cy="75" rx="70" ry="32" fill="url(#bodyFur)" filter="url(#softFur)"/>
+  
+  <!-- Body fur texture -->
+  <ellipse cx="160" cy="75" rx="70" ry="32" fill="none" stroke="#FAFAFA" stroke-width="0.8" opacity="0.4"/>
+  <ellipse cx="160" cy="75" rx="67" ry="30" fill="none" stroke="#F8F8F8" stroke-width="0.6" opacity="0.3"/>
+  
+  <!-- Fluffy underside -->
+  <ellipse cx="160" cy="82" rx="60" ry="20" fill="#FFFFFF" opacity="0.5"/>
+  
+  <!-- Fluffy tail (curved upward) -->
+  <g transform="translate(220, 60)">
+    <ellipse cx="0" cy="0" rx="22" ry="28" fill="#FFFFFF" filter="url(#softFur)"/>
+    <ellipse cx="-4" cy="-3" rx="16" ry="20" fill="#FEFEFE" opacity="0.9"/>
+    <!-- Tail fur strands -->
+    <path d="M -10,-15 Q -8,-22 -6,-28" stroke="#F5F5F5" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M 0,-18 Q 2,-24 4,-30" stroke="#F8F8F8" stroke-width="1.5" fill="none" opacity="0.5"/>
+    <path d="M 8,-15 Q 10,-22 12,-28" stroke="#F5F5F5" stroke-width="1.5" fill="none" opacity="0.5"/>
+  </g>
+  
+  <!-- Head (front-facing, slightly down) -->
+  <g transform="translate(70, 65)">
+    <circle cx="0" cy="0" r="35" fill="url(#headFur)" filter="url(#softFur)"/>
+    
+    <!-- Fluffy cheeks -->
+    <ellipse cx="-20" cy="5" rx="18" ry="20" fill="#FFFFFF" opacity="0.7"/>
+    <ellipse cx="20" cy="5" rx="18" ry="20" fill="#FFFFFF" opacity="0.7"/>
+    
+    <!-- Left ear (floppy) -->
+    <g transform="translate(-22, -22) rotate(-20)">
+      <ellipse cx="0" cy="0" rx="12" ry="22" fill="#FFFEF8" filter="url(#softFur)"/>
+      <ellipse cx="0" cy="3" rx="7" ry="15" fill="#FFF8F0" opacity="0.7"/>
+      <!-- Ear fur -->
+      <path d="M -5,-12 Q -4,-17 -3,-20" stroke="#F5F5F5" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <path d="M 0,-14 Q 1,-18 2,-22" stroke="#F8F8F8" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <path d="M 5,-12 Q 6,-17 7,-20" stroke="#F5F5F5" stroke-width="1.2" fill="none" opacity="0.5"/>
+    </g>
+    
+    <!-- Right ear (floppy) -->
+    <g transform="translate(22, -22) rotate(20)">
+      <ellipse cx="0" cy="0" rx="12" ry="22" fill="#FFFEF8" filter="url(#softFur)"/>
+      <ellipse cx="0" cy="3" rx="7" ry="15" fill="#FFF8F0" opacity="0.7"/>
+      <!-- Ear fur -->
+      <path d="M -5,-12 Q -4,-17 -3,-20" stroke="#F5F5F5" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <path d="M 0,-14 Q 1,-18 2,-22" stroke="#F8F8F8" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <path d="M 5,-12 Q 6,-17 7,-20" stroke="#F5F5F5" stroke-width="1.2" fill="none" opacity="0.5"/>
+    </g>
+    
+    <!-- Top knot with bow -->
+    <g transform="translate(0, -28)">
+      <ellipse cx="0" cy="0" rx="12" ry="10" fill="#FFFFFF" filter="url(#softFur)"/>
+      <ellipse cx="-5" cy="0" rx="7" ry="6" fill="#FEFEFE" opacity="0.8"/>
+      <ellipse cx="5" cy="0" rx="7" ry="6" fill="#FEFEFE" opacity="0.8"/>
+      <!-- Bow -->
+      <circle cx="-5" cy="4" r="4.5" fill="#FFB8D9"/>
+      <circle cx="5" cy="4" r="4.5" fill="#FFB8D9"/>
+      <circle cx="0" cy="4" r="2.5" fill="#FF9AC8"/>
+    </g>
+    
+    <!-- Eyes (happy expression) -->
+    <g transform="translate(-13, -6)">
+      <ellipse cx="0" cy="0" rx="8" ry="9" fill="#2C2420" opacity="0.7"/>
+      <ellipse cx="0" cy="0" rx="7" ry="8" fill="#FFFFFF"/>
+      <ellipse cx="0" cy="0.5" rx="6" ry="7" fill="url(#stretchEye)"/>
+      <ellipse cx="0" cy="0.5" rx="3.5" ry="4.5" fill="#000000"/>
+      <ellipse cx="-1.5" cy="-1.5" rx="2.5" ry="3" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="1.5" cy="1" r="1.2" fill="#FFFFFF" opacity="0.4"/>
+    </g>
+    
+    <g transform="translate(13, -6)">
+      <ellipse cx="0" cy="0" rx="8" ry="9" fill="#2C2420" opacity="0.7"/>
+      <ellipse cx="0" cy="0" rx="7" ry="8" fill="#FFFFFF"/>
+      <ellipse cx="0" cy="0.5" rx="6" ry="7" fill="url(#stretchEye)"/>
+      <ellipse cx="0" cy="0.5" rx="3.5" ry="4.5" fill="#000000"/>
+      <ellipse cx="-1.5" cy="-1.5" rx="2.5" ry="3" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="1.5" cy="1" r="1.2" fill="#FFFFFF" opacity="0.4"/>
+    </g>
+    
+    <!-- Nose -->
+    <ellipse cx="0" cy="8" rx="5" ry="4.5" fill="#1a1410"/>
+    <ellipse cx="-1.5" cy="7" rx="2" ry="1.5" fill="#FFFFFF" opacity="0.4"/>
+    
+    <!-- Happy panting mouth -->
+    <path d="M -10,13 Q -6,17 -2,18 Q 0,18.5 2,18 Q 6,17 10,13" 
+          stroke="#2C2420" stroke-width="2" fill="none" stroke-linecap="round"/>
+    
+    <!-- Tongue out (panting) -->
+    <ellipse cx="0" cy="22" rx="5" ry="7" fill="#FFB6C1"/>
+    <ellipse cx="0" cy="21" rx="3.5" ry="5" fill="#FFD0D8" opacity="0.7"/>
+  </g>
+  
+  <!-- Front legs (stretched forward) -->
+  <g transform="translate(105, 95)">
+    <!-- Left front leg -->
+    <g transform="translate(-18, 0)">
+      <ellipse cx="0" cy="0" rx="9" ry="28" fill="#FFFFFF" filter="url(#softFur)"/>
+      <ellipse cx="0" cy="0" rx="7" ry="26" fill="#FEFEFE" opacity="0.8"/>
+      <!-- Paw -->
+      <ellipse cx="0" cy="26" rx="8" ry="7" fill="#F8F8F8"/>
+      <circle cx="-3" cy="28" r="2.2" fill="#F0F0F0"/>
+      <circle cx="0" cy="29" r="2.2" fill="#F0F0F0"/>
+      <circle cx="3" cy="28" r="2.2" fill="#F0F0F0"/>
+    </g>
+    
+    <!-- Right front leg -->
+    <g transform="translate(18, 0)">
+      <ellipse cx="0" cy="0" rx="9" ry="28" fill="#FFFFFF" filter="url(#softFur)"/>
+      <ellipse cx="0" cy="0" rx="7" ry="26" fill="#FEFEFE" opacity="0.8"/>
+      <!-- Paw -->
+      <ellipse cx="0" cy="26" rx="8" ry="7" fill="#F8F8F8"/>
+      <circle cx="-3" cy="28" r="2.2" fill="#F0F0F0"/>
+      <circle cx="0" cy="29" r="2.2" fill="#F0F0F0"/>
+      <circle cx="3" cy="28" r="2.2" fill="#F0F0F0"/>
+    </g>
+  </g>
+  
+  <!-- Back legs (stretched backward) -->
+  <g transform="translate(195, 95)">
+    <!-- Left back leg -->
+    <g transform="translate(-12, 0)">
+      <ellipse cx="0" cy="0" rx="8" ry="25" fill="#FFFFFF" filter="url(#softFur)"/>
+      <ellipse cx="0" cy="0" rx="6" ry="23" fill="#FEFEFE" opacity="0.8"/>
+      <!-- Paw -->
+      <ellipse cx="0" cy="23" rx="7" ry="6" fill="#F8F8F8"/>
+      <circle cx="-2.5" cy="25" r="2" fill="#F0F0F0"/>
+      <circle cx="0" cy="26" r="2" fill="#F0F0F0"/>
+      <circle cx="2.5" cy="25" r="2" fill="#F0F0F0"/>
+    </g>
+    
+    <!-- Right back leg -->
+    <g transform="translate(12, 0)">
+      <ellipse cx="0" cy="0" rx="8" ry="25" fill="#FFFFFF" filter="url(#softFur)"/>
+      <ellipse cx="0" cy="0" rx="6" ry="23" fill="#FEFEFE" opacity="0.8"/>
+      <!-- Paw -->
+      <ellipse cx="0" cy="23" rx="7" ry="6" fill="#F8F8F8"/>
+      <circle cx="-2.5" cy="25" r="2" fill="#F0F0F0"/>
+      <circle cx="0" cy="26" r="2" fill="#F0F0F0"/>
+      <circle cx="2.5" cy="25" r="2" fill="#F0F0F0"/>
+    </g>
+  </g>
+  
+  <!-- Fur texture details -->
+  <g opacity="0.12" stroke="#E0E0E0" stroke-width="0.7" fill="none" stroke-linecap="round">
+    <path d="M 120,60 Q 115,63 112,68"/>
+    <path d="M 200,65 Q 205,68 208,73"/>
+    <path d="M 140,90 Q 138,95 136,100"/>
+    <path d="M 180,90 Q 182,95 184,100"/>
+  </g>
+</svg>
